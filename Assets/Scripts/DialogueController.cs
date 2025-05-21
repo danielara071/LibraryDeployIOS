@@ -23,7 +23,8 @@ public class DialogueController : MonoBehaviour
     IEnumerator GetPagesData()
     {
         int bookId = PlayerPrefs.GetInt("idLib");
-        string apiUrl = $"https://10.22.239.19:7291/DanielLara/GetPaginas/{bookId}";
+        string curr = PlayerPrefs.GetString("ip");
+        string apiUrl = $"https://{curr}:7291/DanielLara/GetPaginas/{bookId}";
         
         UnityWebRequest web = UnityWebRequest.Get(apiUrl);
         web.certificateHandler = new ForceAcceptAll();
