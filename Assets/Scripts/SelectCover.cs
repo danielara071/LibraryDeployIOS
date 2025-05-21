@@ -38,7 +38,8 @@ public class SelectCover : MonoBehaviour
 
     IEnumerator Start()
     {
-        string JSONurl = "https://10.22.239.19:7291/DanielLara/GetAllLibros";
+        string curr = PlayerPrefs.GetString("ip");
+        string JSONurl = $"https://{curr}:7291/DanielLara/GetAllLibros";
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest();
